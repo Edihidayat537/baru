@@ -1,4 +1,5 @@
 shopeebot
+
 public function getAuth(){
 /**
 * @param ShopApiShopee $model
