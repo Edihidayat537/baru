@@ -1,8 +1,4 @@
-
-2018年8月之后，shopee开始使用新接口，需要进行授权操作
-
-1.授权
-
+shopeebot
 public function getAuth(){
 /**
 * @param ShopApiShopee $model
@@ -21,9 +17,6 @@ if (!$this->_ShopApiShopee->save()) {
 return self::fail(self::CODE_SAVE_ERROR,serialize($this->_ShopApiShopee->getErrors()));
 }
 }
-
-2.拼接获取订单信息
-
 static function getOrderList($shopApiShopee, $days = 1, $offsetDay = 0){
 if(!empty($shopApiShopee) && $shopApiShopee instanceof ShopApiShopee )
 {
@@ -46,7 +39,6 @@ else
 return self::fail(self::CODE_NO_FIND, 'shopee param invalid:' . serialize($shopApiShopee));
 }
 }
-
 private static function _getCurlResponse($shopApiShopee, $url, $arr){
 $arr = json_encode($arr);
 $contentLength = strlen($arr);
@@ -65,9 +57,6 @@ $params = array(
 );
 return self::_curl($params);
 }
-
-3.使用curl请求orderList数据
-
 private static function _curl($params){
 $ch = curl_init($params['base_uri']);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
